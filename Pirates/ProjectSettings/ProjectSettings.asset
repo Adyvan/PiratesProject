@@ -806,7 +806,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: MORPEH;MORPEH_BURST
+    Android: MORPEH;MORPEH_BURST;MORPEH_ELYSIUM
     Standalone: MORPEH_BURST;MORPEH
   additionalCompilerArguments: {}
   platformArchitecture: {}
@@ -914,7 +914,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 641fcd06-d19a-422a-9b21-0adedd099c44
   framebufferDepthMemorylessMode: 0

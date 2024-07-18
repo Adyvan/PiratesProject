@@ -16,6 +16,13 @@
       "dependencies": {},
       "hash": "2eb519ce4a4c3d0cc3096e92d0db1166aa69d88a"
     },
+    "com.scellecs.morpeh.startup": {
+      "version": "https://github.com/heymeepo/morpeh.startup.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "545baff9916a27b82ae3c72613aa45af9586bb3a"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -61,7 +68,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.28",
+      "version": "3.0.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -83,6 +90,15 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
@@ -175,7 +191,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
+      "version": "3.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -213,6 +229,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jp.hadashikick.vcontainer": {
+      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.16.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "fbc5b06545695cc964142f33aa2443e337b38d5c"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
