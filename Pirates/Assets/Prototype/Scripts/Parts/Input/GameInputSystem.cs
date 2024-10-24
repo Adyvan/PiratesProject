@@ -17,15 +17,13 @@ namespace Prototype.Scripts.Systems
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(GameInputSystem))]
     public sealed class GameInputSystem : UpdateSystem
     {
-        private Action<InputControl, InputEventPtr> unpairedDeviceUsedDelegate;
-        
+        private Action<InputControl, InputEventPtr> _unpairedDeviceUsedDelegate;
+
         public override void OnAwake()
         {
-            World.GetStash<NewInputSourceEvent>().AsDisposable();
-
-            unpairedDeviceUsedDelegate = OnUnpairedDeviceUsed;
+            _unpairedDeviceUsedDelegate = OnUnpairedDeviceUsed;
             ++InputUser.listenForUnpairedDeviceActivity;
-            InputUser.onUnpairedDeviceUsed += unpairedDeviceUsedDelegate;
+            InputUser.onUnpairedDeviceUsed += _unpairedDeviceUsedDelegate;
         }
 
         public override void OnUpdate(float deltaTime)
@@ -35,7 +33,7 @@ namespace Prototype.Scripts.Systems
 
         public override void Dispose()
         {
-            InputUser.onUnpairedDeviceUsed -= unpairedDeviceUsedDelegate;
+            InputUser.onUnpairedDeviceUsed -= _unpairedDeviceUsedDelegate;
             --InputUser.listenForUnpairedDeviceActivity;
         }
 
@@ -47,21 +45,23 @@ namespace Prototype.Scripts.Systems
             }
 
             var actions = new InputActions();
-             if (!actions.CommonScheme.SupportsDevice(control.device))
-             {
-                 return;
-             }
-            
-             Entity userEntity = World.CreateEntity();
-             ref NewInputSourceEvent newInputSource = ref userEntity.AddComponent<NewInputSourceEvent>();
-             newInputSource.device = control.device;
-            
-             newInputSource.inputActions = actions;
-             newInputSource.inputActions.Enable();
-            
-             newInputSource.user = InputUser.PerformPairingWithDevice(control.device);
-             newInputSource.user.ActivateControlScheme(actions.CommonScheme);
-             newInputSource.user.AssociateActionsWithUser(actions);
+            if (!actions.CommonScheme.SupportsDevice(control.device))
+            {
+                return;
+            }
+
+            var damageRequest = World.GetRequest<NewInputSourceEvent>();
+
+            var user = InputUser.PerformPairingWithDevice(control.device);
+            user.ActivateControlScheme(actions.CommonScheme);
+            user.AssociateActionsWithUser(actions);
+
+            damageRequest.Publish(new NewInputSourceEvent
+            {
+                device = control.device,
+                inputActions = actions,
+                user = user,
+            });
         }
     }
 }

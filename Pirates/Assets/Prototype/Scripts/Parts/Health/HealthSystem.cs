@@ -23,7 +23,7 @@ namespace Prototype.Scripts.Systems
         public override void OnUpdate(float deltaTime) {
             foreach (var entity in _filter) {
                 ref var healthComponent = ref _healthStash.Get(entity);
-                Debug.Log(healthComponent.healthPoints);
+                //Debug.Log(healthComponent.healthPoints);
             }
         }
     }

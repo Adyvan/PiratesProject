@@ -10,9 +10,8 @@ namespace Prototype.Scripts.Components
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public struct NewInputSourceEvent : IComponent, IDisposable
+    public struct NewInputSourceEvent : IRequestData, IDisposable
     {
-        public bool Handled;
         public InputDevice device;
         public InputActions inputActions;
         public InputUser user;

@@ -18,8 +18,6 @@ namespace Prototype.Scripts.Systems
         private PrefabsSettings _settings;
 
         private PlayerPool _playerPool;
-        private Filter _needToSpawnFilter;
-        private Stash<NewInputSourceEvent> _needToSpawnStash;
         private Stash<GameUser> _gameUserStash;
 
         public override void OnAwake()
@@ -27,25 +25,23 @@ namespace Prototype.Scripts.Systems
             _playerPool = new PlayerPool(_settings.PlayerViewPrefab, default);
             _playerPool.Initialize();
 
-            _needToSpawnFilter = World.Filter.With<NewInputSourceEvent>().Build();
-            _needToSpawnStash = World.GetStash<NewInputSourceEvent>();
             _gameUserStash = World.GetStash<GameUser>().AsDisposable();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var entity in _needToSpawnFilter)
+            var damageRequest = World.GetRequest<NewInputSourceEvent>();
+            
+            // handle request
+            foreach (var request in damageRequest.Consume())
             {
-                ref var newInputSourceEvent = ref _needToSpawnStash.Get(entity);
-                if (newInputSourceEvent.Handled) continue;
-
+                request.inputActions.Enable();
                 Debug.Log("Init Player");
-                Spawn(ref newInputSourceEvent);
-                newInputSourceEvent.Handled = true;
+                Spawn(request);
             }
         }
 
-        private void Spawn(ref NewInputSourceEvent newInputSourceEvent)
+        private void Spawn(NewInputSourceEvent newInputSourceEvent)
         {
             var playerView = _playerPool.GetItem();
             playerView.InitObject(_playerPool, RemoveAllPlayerComponents);
