@@ -1,11 +1,18 @@
 {
   "dependencies": {
     "com.codewriter.morpeh.events": {
-      "version": "https://github.com/codewriter-packages/Morpeh.Events.git",
+      "version": "https://github.com/codewriter-packages/Morpeh.Events.git#1.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8eecc3bf9440af87ef3c66bf7a1ff210ff361c03"
+      "hash": "85f39901a51423e9ecf2de7326f2db17fef20046"
+    },
+    "com.codewriter.morpeh.systemstateprocessor": {
+      "version": "https://github.com/codewriter-packages/Morpeh.SystemStateProcessor.git#2.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "db27cf76cc5a88a65cbf1ba7f0335391b02c3ad4"
     },
     "com.codewriter.triinspector": {
       "version": "https://github.com/codewriter-packages/Tri-Inspector.git",
@@ -16,26 +23,12 @@
       },
       "hash": "67ee3d8adaf6f3faf50da8dc33b57ec7964f98bb"
     },
-    "com.farco.morpeh.helpers": {
-      "version": "https://github.com/SH42913/morpeh.helpers.git?path=/Assets/Morpeh.Helpers",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "027147a64ba55253a3745b06374707aba4af299b"
-    },
     "com.scellecs.morpeh": {
-      "version": "https://github.com/scellecs/morpeh.git",
+      "version": "https://github.com/scellecs/morpeh.git#stage-2023.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b431c26ab03c1ec385fb948734a3b14255bf7e42"
-    },
-    "com.scellecs.morpeh.startup": {
-      "version": "https://github.com/heymeepo/morpeh.startup.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "545baff9916a27b82ae3c72613aa45af9586bb3a"
+      "hash": "41fd6a4741c409f4ffa8e3ddf0444b0310a0ec37"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
