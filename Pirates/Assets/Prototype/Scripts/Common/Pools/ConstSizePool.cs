@@ -33,6 +33,8 @@ namespace Prototype.Scripts.Common.Pools
         {
             var id = GetNextFreeId();
             IncrementNextFreeId();
+            if (id == -1 || _flags[id]) return default;
+
             _flags[id] = true;
             return _pool[id];
         }
@@ -40,8 +42,6 @@ namespace Prototype.Scripts.Common.Pools
         public void Release(T obj)
         {
             _flags[obj.PoolObjectId] = false;
-            //only if object without const lifetime
-            _nextFreeId = obj.PoolObjectId;
         }
 
         private int GetNextFreeId()
