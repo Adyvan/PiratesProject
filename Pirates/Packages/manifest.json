@@ -4,6 +4,7 @@
     "com.codewriter.morpeh.systemstateprocessor": "https://github.com/codewriter-packages/Morpeh.SystemStateProcessor.git#2.0.0",
     "com.codewriter.triinspector": "https://github.com/codewriter-packages/Tri-Inspector.git",
     "com.scellecs.morpeh": "https://github.com/scellecs/morpeh.git#stage-2023.1",
+    "com.scellecs.morpeh.startup": "https://github.com/heymeepo/morpeh.startup.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.ide.rider": "3.0.34",
